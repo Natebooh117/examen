@@ -1,0 +1,134 @@
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `taqueriarre`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `taqueria`
+--
+
+CREATE TABLE `taqueria` (
+  `id` int(11) NOT NULL,
+  `Tacos` varchar(100) DEFAULT NULL,
+  `Descripcion` varchar(100) DEFAULT NULL,
+  `Precio` decimal(10,2) DEFAULT NULL,
+  `Proporcion` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `taqueria`
+--
+
+INSERT INTO `taqueria` (`id`, `Tacos`, `Descripcion`, `Precio`, `Proporcion`) VALUES
+(2, 'Asada', 'Taco de asada', '17.00', 4),
+(3, 'Pastor', 'Taco de Pastor', '20.00', 4),
+(4, 'Tripa', 'Taco de adobada', '16.00', 4),
+(5, 'pollo', 'Taco de chorizo', '24.00', 4),
+(6, 'Rjas', 'Taco de champiñon', '20.00', 4),
+(7, 'Cabeza', 'Taco de cabeza', '26.00', 4),
+(8, 'Pastor', 'Taco de lengua', '30.00', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `taqueriaex`
+--
+
+CREATE TABLE `taqueriaex` (
+  `id` int(11) NOT NULL,
+  `Tacos` varchar(100) DEFAULT NULL,
+  `Descripcion` varchar(100) DEFAULT NULL,
+  `Precio` decimal(10,2) DEFAULT NULL,
+  `Precio_US` decimal(10,2) DEFAULT NULL,
+  `Proporcion` int(11) DEFAULT NULL,
+  `ImageN` blob DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `taqueriaex`
+--
+
+INSERT INTO `taqueriaex` (`id`, `Tacos`, `Descripcion`, `Precio`, `Precio_US`, `Proporcion`, `ImageN`) VALUES
+(1, 'Asada', 'Taco de asada', '1.00', '17.30', 4, ''),
+(2, 'Asada', 'Taco de asada', '17.00', '294.10', 4, ''),
+(3, 'Asada', 'Taco de asada', '17.00', '294.10', 4, ''),
+(4, 'Asada', 'Taco de asada', '17.00', '294.10', 4, 0x61736164612e6a7067),
+(6, 'Asada', 'Taco de asada', '17.00', '294.10', 4, 0x61736164612e6a7067),
+(7, 'Asada', 'Taco de asada', '17.00', '294.10', 4, 0x61736164612e6a7067),
+(8, 'Asada', 'Taco de asada', '10.00', '173.00', 4, NULL),
+(9, 'Asada', 'Taco de asada', '17.00', '294.10', 4, NULL),
+(10, 'Asada', 'Taco de asada', '10.00', '173.00', 4, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `name` varchar(60) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `user_level` int(11) NOT NULL,
+  `image` varchar(255) DEFAULT 'no_image.jpg',
+  `status` int(1) NOT NULL,
+  `last_login` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `username`, `password`, `user_level`, `image`, `status`, `last_login`) VALUES
+(0, '', 'user', 'user', 0, 'no_image.jpg', 0, NULL),
+(0, '', 'Natan', 'Natan', 0, 'no_image.jpg', 0, NULL);
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `taqueria`
+--
+ALTER TABLE `taqueria`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `taqueriaex`
+--
+ALTER TABLE `taqueriaex`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `taqueria`
+--
+ALTER TABLE `taqueria`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT de la tabla `taqueriaex`
+--
+ALTER TABLE `taqueriaex`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
